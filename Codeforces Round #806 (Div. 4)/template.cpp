@@ -9,11 +9,11 @@ void solve()
 
 int main()
 {
-	int tc;
-	cin >> tc;
-	while (tc--)
-	{
-		solve();
-	}
-	return 0;
+    int tc;
+    cin >> tc;
+    while (tc--)
+    {
+        solve();
+    }
+    return 0;
 }
