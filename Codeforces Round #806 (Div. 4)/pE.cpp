@@ -7,9 +7,10 @@ void solve()
 {
     int n;
     cin >> n;
+    string s[n];
     for (int i = 0; i < n; ++i)
-    {
-    }
+        cin >> s[i];
+    
 }
 
 int main()
