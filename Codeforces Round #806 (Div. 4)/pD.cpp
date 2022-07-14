@@ -8,33 +8,29 @@ void solve()
     int n;
     cin >> n;
     string arr[n];
-
-    for (int i = 0; i < n; ++i)
-        cin >> arr[i];
-
-    int arb[n];
-    for (int i = 0; i < n; ++i)
-        arb[i] = 0;
-
-    vector<string> vs;
-    for (int i = 0; i < n; ++i)
-        for (int j = 0; j < n; ++j)
-            vs.push_back(arr[i] + arr[j]);
+    set<string> ss;
 
     for (int i = 0; i < n; ++i)
     {
-        for (int j = 0; j < vs.size(); ++j)
-        {
-            if (arr[i] == vs[j])
-            {
-                arb[i] = 1;
-                break;
-            }
-        }
+        cin >> arr[i];
+        ss.insert(arr[i]);
     }
 
     for (int i = 0; i < n; ++i)
-        cout << arb[i];
+    {
+        bool found = false;
+        for (int j = 0; j < arr[i].size(); ++j)
+        {
+            string s1 = arr[i].substr(0, j);
+            string s2 = arr[i].substr(j);
+            if (ss.count(s1) != 0 && ss.count(s2) != 0)
+            {
+                found = true;
+                break;
+            }
+        }
+        cout << found;
+    }
     cout << endl;
 }
 
