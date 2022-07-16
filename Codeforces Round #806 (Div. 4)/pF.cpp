@@ -7,25 +7,27 @@ void solve()
 {
     int n;
     cin >> n;
-    int arr[n];
+    int arr[n + 1];
 
-    for (int i = 0; i < n; ++i)
+    for (int i = 1; i <= n; ++i)
         cin >> arr[i];
-    vector<pair<int, int>> vp;
 
-    for (int i = 0; i < n - 1; ++i)
+    long long ans = 0;
+    vector<int> v;
+    for (int i = 1; i <= n; i++)
     {
-        for (int j = i + 1; j < n; ++j)
-        {
-            if (arr[i] < (i + 1) && (i + 1) < arr[j] && arr[j] < (j + 1))
-                vp.push_back({arr[i], arr[j]});
-        }
+        if (arr[i] >= i)
+            continue;
+        ans += (long long)(lower_bound(v.begin(), v.end(), arr[i]) - v.begin());
+        v.push_back(i);
     }
-    cout << vp.size() << endl;
+    cout << ans << '\n';
 }
 
 int main()
 {
+    ios_base::sync_with_stdio(false);
+    cin.tie(NULL);
     int tc;
     cin >> tc;
     while (tc--)
